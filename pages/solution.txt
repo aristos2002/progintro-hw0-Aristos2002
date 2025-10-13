@@ -2,6 +2,6 @@
 $ cat solution.txt
 # progintro-hw0-Aristos2002
 # Ensure the URL exists
-$ curl --output /dev/null --silent --head --fail YourUsername.github.io && \
+$ curl --output /dev/null --silent --head --fail # progintro-hw0-Aristos2002 && \
 echo "URL exists" || echo "URL does not exist"
 URL exists
