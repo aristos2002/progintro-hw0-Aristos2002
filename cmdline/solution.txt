@@ -1,1 +1,1 @@
-
+$ cat solution.txt
