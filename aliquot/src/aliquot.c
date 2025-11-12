@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,14 +5,14 @@
 #define MAX_VALUE 100000000000000000 // 10^15
 
 // Υπολογισμός αθροίσματος κατάλληλων διαιρετών
-unsigned long long aliquot_sum(unsigned long long n)
+long long aliquot_sum(long long n)
 {
     if (n <= 1)
         return 0;
-    unsigned long long sum = 1;
-    unsigned long long root = sqrt(n);
+    long long sum = 1;
+    long long root = sqrt(n);
 
-    for (unsigned long long i = 2; i <= root; i++)
+    for (long long i = 2; i <= root; i++)
     {
         if (n % i == 0)
         {
@@ -27,8 +26,8 @@ unsigned long long aliquot_sum(unsigned long long n)
 
 int main(void)
 {
-    unsigned long long start, current;
-    unsigned long long maxlen;
+    long long start, current;
+    long long maxlen;
     char mode;
     // Ανάγνωση εισόδου με έλεγχο
     if (scanf("%llu %llu %c", &start, &maxlen, &mode) != 3)
@@ -42,10 +41,10 @@ int main(void)
         exit(1);
     }
     current = start;
-    unsigned long long count = 0;
-    unsigned long long prev = 0;
-    unsigned long long seen[10000];
-    unsigned long long seen_count = 0;
+    long long count = 0;
+    long long prev = 0;
+    long long seen[10000];
+    long long seen_count = 0;
     while (1)
     {
         // Έλεγχος υπέρβασης ορίου
@@ -66,13 +65,13 @@ int main(void)
         if (maxlen > 0 && count >= maxlen)
             break;
         // Έλεγχος για κύκλο
-        for (unsigned long long i = 0; i < seen_count; i++)
+        for (long long i = 0; i < seen_count; i++)
         {
             if (seen[i] == current)
                 goto end_sequence;
         }
         seen[seen_count++] = current;
-        unsigned long long next = aliquot_sum(current);
+        long long next = aliquot_sum(current);
         // Έλεγχος για τέλειο αριθμό
         if (next == current)
         {
